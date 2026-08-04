@@ -42,7 +42,7 @@ jobs:
     - name: Run tests
       run: |
         pytest tests/
-s
+
 
     # 5. Validate Streamlit app
     - name: Check Streamlit app
