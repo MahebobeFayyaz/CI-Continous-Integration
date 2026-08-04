@@ -1,18 +1,35 @@
 import streamlit as st
 
-# Streamlit UI
-st.title("Power Calculator")
-st.write("Enter a number to calculate its square, cube, and fifth power.")
+# App title
+st.title("🚀 My First Streamlit App")
 
-# Get user input
-n = st.number_input("Enter an integer", value=1, step=1)
+# Description
+st.write("Welcome to my simple Streamlit application!")
 
-# Calculate results
-square = n ** 2
-cube = n ** 3
-fifth_power = n ** 5
+# Sidebar
+st.sidebar.title("User Input")
 
-# Display results
-st.write(f"The square of {n} is: {square}")
-st.write(f"The cube of {n} is: {cube}")
-st.write(f"The fifth power of {n} is: {fifth_power}")
+name = st.sidebar.text_input("Enter your name")
+
+age = st.sidebar.number_input(
+    "Enter your age",
+    min_value=1,
+    max_value=100,
+    value=25
+)
+
+# Button
+if st.button("Submit"):
+
+    if name:
+        st.success(f"Hello {name}! 👋")
+        st.write(f"You are {age} years old.")
+
+        # Simple logic
+        if age >= 18:
+            st.info("You are an adult.")
+        else:
+            st.warning("You are under 18.")
+
+    else:
+        st.error("Please enter your name.")
